@@ -182,8 +182,14 @@
                             <p>Цвета</p>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="pages/gallery.html" class="nav-link">
+                    <li class="nav-item d-flex">
+                        <div class="input-group-prepend">
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item text-gray" href="{{route('user.create')}}">Добавить пользователя</a>
+                            </div>
+                            <i class="fa fa-cog text-gray pt-2 pr-1" data-toggle="dropdown" aria-expanded="false" aria-hidden="true"></i>
+                        </div>
+                        <a href="{{route('user.index')}}" class="nav-link">
                             <i class="fa fa-user-circle" aria-hidden="true"></i>
                             <p>Пользователи</p>
                         </a>

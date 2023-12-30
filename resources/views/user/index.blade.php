@@ -6,7 +6,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Тэги</h1>
+                    <h1 class="m-0">Пользователи</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -26,30 +26,42 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <a href="{{route('category.create')}}" class="btn btn-primary">Добавить тэг</a>
+                            <a href="{{route('user.create')}}" class="btn btn-primary">Добавить пользователя</a>
                         </div>
                         <div class="card-body table-responsive p-0">
                             <table class="table table-hover text-nowrap">
                                 <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Название</th>
+                                    <th>Имя</th>
+                                    <th>Email</th>
+                                    <th>Фамилия</th>
+                                    <th>Отчество</th>
+                                    <th>Возраст</th>
+                                    <th>Адрес</th>
+                                    <th>Пол</th>
                                     <th>Действие</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                 @foreach($tags as $tag)
+                                 @foreach($users as $user)
                                 <tr>
-                                    <td>{{$tag->id}}</td>
-                                    <td><a href="{{route('tag.show',$tag)}}">{{$tag->title}}</a></td>
+                                    <td>{{$user->id}}</td>
+                                    <td><a href="{{route('user.show',$user)}}">{{$user->name}}</a></td>
+                                    <td>{{$user->email}}</td>
+                                    <td>{{$user->firstname}}</td>
+                                    <td>{{$user->lastname}}</td>
+                                    <td>{{$user->age}}</td>
+                                    <td>{{$user->address}}</td>
+                                    <td>{{$user->genderTitle}}</td>
                                     <td>
                                         <div class="input-group-prepend">
                                             <div class="dropdown-menu">
-                                                <a class="dropdown-item text-gray" href="{{route('tag.edit',$tag)}}">Редактировать тэг</a>
-                                                <form action="{{route('tag.delete',$tag)}}" method="post">
+                                                <a class="dropdown-item text-gray" href="{{route('user.edit',$user)}}">Редактировать пользователя</a>
+                                                <form action="{{route('user.delete',$user)}}" method="post">
                                                     @csrf
                                                     @method('delete')
-                                                    <button type="submit" class="dropdown-item text-gray">Удалить тэг</button>
+                                                    <button type="submit" class="dropdown-item text-gray">Удалить пользователя</button>
                                                 </form>
                                             </div>
                                             <i class="fa fa-cog text-gray pt-2 pr-1" data-toggle="dropdown" aria-expanded="false" aria-hidden="true"></i>

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Tag;
+namespace App\Http\Requests\User;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -24,12 +24,11 @@ class UpdateRequest extends FormRequest
         return [
             'name'=>'required|string',
             'email'=>'required|string',
-            'password'=>'required|string|confirmed',
             'firstname'=>'nullable|string',
             'lastname'=>'nullable|string',
             'age'=>'nullable|integer',
-            'gender'=>'nullable|string',
-            'address'=>'nullable|integer'
+            'gender'=>'nullable|integer',
+            'address'=>'nullable|string'
         ];
     }
 }

@@ -6,7 +6,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Обновить тэг</h1>
+                    <h1 class="m-0">Обновить пользователя {{$user->name}}</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -22,14 +22,26 @@
     <section class="content">
         <div class="container-fluid">
             <div class="form-group">
-                <a class="btn btn-primary" href="{{route('tag.index')}}">На страницу с тэгами</a>
+                <a class="btn btn-primary" href="{{route('tag.index')}}">На страницу с пользователями</a>
             </div>
             <div class="row">
-                <form action="{{route('tag.update',$tag)}}" method="post">
+                <form action="{{route('user.update',$user)}}" method="post">
                     @csrf
                     @method('patch')
-                    <div class="form-group"><input class="form-control w-100" name="title" value="{{$tag->title}}" type="text"></div>
-                    <div class="form-group"><button class="btn btn-primary" type="submit">Обновить тэг</button></div>
+                    <div class="form-group"> <input placeholder="Имя" value="{{$user->name??old('name')}}" class="form-control" name="name" type="text"></div>
+                    <div class="form-group"> <input placeholder="Email" value="{{$user->email??old('email')}}" class="form-control" name="email" type="text"></div>
+                    <div class="form-group"> <input placeholder="Фамилия" value="{{$user->firstname??old('firstname')}}" class="form-control" name="firstname" type="text"></div>
+                    <div class="form-group"> <input placeholder="Отчество" value="{{$user->lastname??old('lastname')}}" class="form-control" name="lastname" type="text"></div>
+                    <div class="form-group"> <input placeholder="Возраст" value="{{$user->age??old('age')}}" class="form-control" name="age" type="text"></div>
+                    <div class="form-group"> <input placeholder="Адрес" value="{{$user->address??old('address')}}" class="form-control" name="address" type="text"></div>
+                    <div class="form-group">
+                        <select name="gender"  class="custom-select form-control-border" id="exampleSelectBorder">
+                            <option disabled selected>Пол</option>
+                            <option {{old('gender')==1?'selected':''}} value="1">Мужской</option>
+                            <option {{old('gender')==2?'selected':''}} value="2">Женский</option>
+                        </select>
+                    </div>
+                    <div class="form-group"><button class="btn btn-primary" type="submit">Обновить пользователя</button></div>
                 </form>
             </div>
         </div>

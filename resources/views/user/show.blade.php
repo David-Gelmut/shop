@@ -6,7 +6,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">ыв {{$tag->title}}</h1>
+                    <h1 class="m-0">Пользователь {{$user->title}}</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -26,12 +26,12 @@
                     <div class="card">
                         <div class="card-header d-flex p-3">
                             <div class="mr-3">
-                                <a href="{{route('tag.edit',$tag)}}" class="btn btn-primary">Обновить тэг</a>
+                                <a href="{{route('user.edit',$user)}}" class="btn btn-primary">Обновить пользователя</a>
                             </div>
-                            <form action="{{route('tag.delete',$tag)}}" method="post">
+                            <form action="{{route('user.delete',$user)}}" method="post">
                                 @csrf
                                 @method('delete')
-                                <button type="submit" class="btn btn-danger">Удалить тэг</button>
+                                <button type="submit" class="btn btn-danger">Удалить пользователя</button>
                             </form>
                         </div>
                         <div class="card-body table-responsive p-0">
@@ -39,13 +39,25 @@
                                 <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Название</th>
+                                    <th>Имя</th>
+                                    <th>Email</th>
+                                    <th>Фамилия</th>
+                                    <th>Отчество</th>
+                                    <th>Возраст</th>
+                                    <th>Адрес</th>
+                                    <th>Пол</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>{{$tag->id}}</td>
-                                        <td>{{$tag->title}}</td>
+                                        <td>{{$user->id}}</td>
+                                        <td>{{$user->name}}</td>
+                                        <td>{{$user->email}}</td>
+                                        <td>{{$user->firstname}}</td>
+                                        <td>{{$user->lastname}}</td>
+                                        <td>{{$user->age}}</td>
+                                        <td>{{$user->address}}</td>
+                                        <td>{{$user->genderTitle}}</td>
                                     </tr>
                                 </tbody>
                             </table>

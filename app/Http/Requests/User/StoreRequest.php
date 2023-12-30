@@ -28,8 +28,8 @@ class StoreRequest extends FormRequest
             'firstname'=>'nullable|string',
             'lastname'=>'nullable|string',
             'age'=>'nullable|integer',
-            'gender'=>'nullable|string',
-            'address'=>'nullable|integer'
+            'gender'=>'nullable|integer',
+            'address'=>'nullable|string'
         ];
     }
 }
