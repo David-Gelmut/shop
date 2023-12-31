@@ -23,7 +23,7 @@ class StoreRequest extends FormRequest
     {
         return [
             'name'=>'required|string',
-            'email'=>'required|string',
+            'email'=>'required|string|unique:users,email',
             'password'=>'required|string|confirmed',
             'firstname'=>'nullable|string',
             'lastname'=>'nullable|string',
