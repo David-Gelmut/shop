@@ -10,11 +10,13 @@
     <link rel="stylesheet" href="{{asset('adminlte/plugins/fontawesome-free/css/all.min.css')}}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{asset('adminlte/dist/css/adminlte.min.css')}}">
+    <link rel="stylesheet" href="{{asset('adminlte/plugins/select2/css/select2.css')}}">
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="{{asset('adminlte/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
     <!-- summernote -->
     <link rel="stylesheet" href="{{asset('adminlte/plugins/summernote/summernote-bs4.min.css')}}">
     <link rel="stylesheet" href="{{asset('adminlte/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.css')}}">
+
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -140,8 +142,14 @@
                             <p>Заказы</p>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="pages/gallery.html" class="nav-link">
+                    <li class="nav-item d-flex">
+                        <div class="input-group-prepend">
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item text-gray" href="{{route('product.create')}}">Добавить продукт</a>
+                            </div>
+                            <i class="fa fa-cog text-gray pt-2 pr-1" data-toggle="dropdown" aria-expanded="false" aria-hidden="true"></i>
+                        </div>
+                        <a  href="{{route('product.index')}}" class="nav-link pt-1">
                             <i class="fa fa-barcode" aria-hidden="true"></i>
                             <p>Продукты</p>
                         </a>
@@ -225,24 +233,30 @@
 <script src="{{asset('adminlte/plugins/jquery-ui/jquery-ui.min.js')}}"></script>
 <!-- Bootstrap 4 -->
 <script src="{{asset('adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{asset('adminlte/plugins/select2/js/select2.js')}}"></script>
 <!-- Summernote -->
 <script src="{{asset('adminlte/plugins/summernote/summernote-bs4.min.js')}}"></script>
 <!-- overlayScrollbars -->
 <script src="{{asset('adminlte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
 <script src="{{asset('adminlte/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js')}}"></script>
+
 <!-- AdminLTE App -->
 <script src="{{asset('adminlte/dist/js/adminlte.js')}}"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
-    $.widget.bridge('uibutton', $.ui.button);
-    //Colorpicker
-    $('.my-colorpicker1').colorpicker()
-    //color picker with addon
-    $('.my-colorpicker2').colorpicker()
+    $(document).ready(function(){
+        $('.tags').select2();
+        $('.colors').select2();
+        $.widget.bridge('uibutton', $.ui.button);
+        //Colorpicker
+        $('.my-colorpicker1').colorpicker()
+        //color picker with addon
+        $('.my-colorpicker2').colorpicker()
 
-    $('.my-colorpicker2').on('colorpickerChange', function(event) {
-        $('.my-colorpicker2 .fa-square').css('color', event.color.toString());
-    })
+        $('.my-colorpicker2').on('colorpickerChange', function(event) {
+            $('.my-colorpicker2 .fa-square').css('color', event.color.toString());
+        });
+    });
 </script>
 </body>
 </html>
