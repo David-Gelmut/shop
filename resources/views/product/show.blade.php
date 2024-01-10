@@ -43,7 +43,8 @@
                                     <th>Описание</th>
                                     <th>Кол-во</th>
                                     <th>Цена</th>
-                                    <th>Цвет</th>
+                                    <th>Цвета</th>
+                                    <th>Тэги</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -53,7 +54,16 @@
                                         <td>{{$product->desc}}</td>
                                         <td>{{$product->count}}</td>
                                         <td>{{$product->price}}</td>
-                                        <td><div style="border-radius: 30px;width: 20px;height: 20px;background: {{$product->title}} "></div></td>
+                                        <td>
+                                            @foreach($product->colors as $color)
+                                                <p style="background-color: {{$color->title}};border-radius: 10px;width: 20px;height: 20px;"></p>
+                                            @endforeach
+                                        </td>
+                                        <td>
+                                            @foreach($product->tags as $tag)
+                                                <p style="background-color:#007aff;color: #f6f6f6;padding: 1px;border-radius: 10px;text-align: center;">{{$tag->title}}</p>
+                                            @endforeach
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>

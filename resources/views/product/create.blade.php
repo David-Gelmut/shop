@@ -29,8 +29,8 @@
                     <div class="form-group">
                         <input type="text" name="desc" class="form-control" placeholder="Описание">
                     </div>
-                    <div class="form-group">
-                        <textarea type="text" name="content" class="form-control h-auto" placeholder="Контент"></textarea>
+                    <div class="form-group" >
+                        <textarea id="summernote" type="text" name="content" class="form-control h-auto" placeholder="Контент"></textarea>
                     </div>
                     <div class="form-group">
                         <input type="text" name="price" class="form-control" placeholder="Цена">

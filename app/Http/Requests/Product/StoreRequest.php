@@ -25,7 +25,7 @@ class StoreRequest extends FormRequest
             'title'=>'required',
             'desc'=>'required',
             'content'=>'required',
-            'prev_image'=>'required',
+            'prev_image'=>'nullable|file',
             'count'=>'required',
             'price'=>'required',
             'is_published'=>'nullable',

@@ -245,9 +245,14 @@
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
     $(document).ready(function(){
+        // Summernote
+        $('#summernote').summernote();
+
         $('.tags').select2();
         $('.colors').select2();
+
         $.widget.bridge('uibutton', $.ui.button);
+
         //Colorpicker
         $('.my-colorpicker1').colorpicker()
         //color picker with addon
