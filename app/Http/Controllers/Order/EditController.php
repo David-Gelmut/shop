@@ -1,20 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\Product;
+namespace App\Http\Controllers\Order;
 
 use App\Http\Controllers\Controller;
-use App\Models\Category;
-use App\Models\Color;
-use App\Models\Product;
-use App\Models\Tag;
+use App\Models\Order;
+
 
 class EditController extends Controller
 {
-   public function __invoke(Product $product)
+   public function __invoke(Order $order)
    {
-       $tags = Tag::all();
-       $colors = Color::all();
-       $categories = Category::all();
-       return view('product.edit',['product'=>$product,'tags'=>$tags,'colors'=>$colors,'categories'=>$categories]);
+       return view('order.edit',['order'=>$order]);
    }
 }

@@ -14,6 +14,9 @@ class User extends Authenticatable
 
     const GENDER_MALE = 1;
     const GENDER_FEMALE = 2;
+    const ROLE_ADMIN = 1;
+    const ROLE_USER = 2;
+    const ROLE_MANAGER = 3;
 
     /**
      * The attributes that are mass assignable.
@@ -28,7 +31,8 @@ class User extends Authenticatable
         'lastname',
         'age',
         'gender',
-        'address'
+        'address',
+        'role'
     ];
 
     /**
@@ -59,8 +63,22 @@ class User extends Authenticatable
         ];
     }
 
+    static function getRoles()
+    {
+        return [
+            self::ROLE_ADMIN => 'Администратор',
+            self::ROLE_USER => 'Посетитель',
+            self::ROLE_MANAGER => 'Менеджер',
+        ];
+    }
+
     public function getGenderTitleAttribute()
     {
         return self::getGenders()[$this->gender];
+    }
+
+    public function getRoleTitleAttribute()
+    {
+        return self::getRoles()[$this->role];
     }
 }

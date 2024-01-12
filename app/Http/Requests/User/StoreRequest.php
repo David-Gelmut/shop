@@ -29,7 +29,8 @@ class StoreRequest extends FormRequest
             'lastname'=>'nullable|string',
             'age'=>'nullable|integer',
             'gender'=>'nullable|integer',
-            'address'=>'nullable|string'
+            'address'=>'nullable|string',
+            'role'=>'nullable|integer'
         ];
     }
 }

@@ -6,7 +6,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Пользователи</h1>
+                    <h1 class="m-0">Заказы</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -17,7 +17,6 @@
         </div>
     </div>
     <!-- /.content-header -->
-
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
@@ -26,44 +25,35 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <a href="{{route('user.create')}}" class="btn btn-primary">Добавить пользователя</a>
+                            <a href="{{route('order.create')}}" class="btn btn-primary">Добавить заказ</a>
                         </div>
                         <div class="card-body table-responsive p-0">
                             <table class="table table-hover text-nowrap">
                                 <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Роль</th>
                                     <th>Имя</th>
-                                    <th>Email</th>
-                                    <th>Фамилия</th>
-                                    <th>Отчество</th>
-                                    <th>Возраст</th>
-                                    <th>Адрес</th>
-                                    <th>Пол</th>
+                                    <th>Телефон</th>
+                                    <th>Дата создания</th>
                                     <th>Действие</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                 @foreach($users as $user)
+                                 @foreach($orders as $order)
                                 <tr>
-                                    <td>{{$user->id}}</td>
-                                    <td>{{$user->roleTitle}}</td>
-                                    <td><a href="{{route('user.show',$user)}}">{{$user->name}}</a></td>
-                                    <td>{{$user->email}}</td>
-                                    <td>{{$user->firstname}}</td>
-                                    <td>{{$user->lastname}}</td>
-                                    <td>{{$user->age}}</td>
-                                    <td>{{$user->address}}</td>
-                                    <td>{{$user->genderTitle}}</td>
+                                    <td>{{$order->id}}</td>
+                                    <td><a href="{{route('order.show',$order)}}">{{$order->name}}</a></td>
+                                    <td>{{$order->phone}}</td>
+                                    <td>{{$order->created_at}}</td>
                                     <td>
                                         <div class="input-group-prepend">
                                             <div class="dropdown-menu">
-                                                <a class="dropdown-item text-gray" href="{{route('user.edit',$user)}}">Редактировать пользователя</a>
-                                                <form action="{{route('user.delete',$user)}}" method="post">
+                                                <a class="dropdown-item text-gray" href="{{route('order.show',$order)}}">Показать заказ</a>
+                                                <a class="dropdown-item text-gray" href="{{route('order.edit',$order)}}">Редактировать заказ</a>
+                                                <form action="{{route('order.delete',$order)}}" method="post">
                                                     @csrf
                                                     @method('delete')
-                                                    <button type="submit" class="dropdown-item text-gray">Удалить пользователя</button>
+                                                    <button type="submit" class="dropdown-item text-gray">Удалить заказ</button>
                                                 </form>
                                             </div>
                                             <i class="fa fa-cog text-gray pt-2 pr-1" data-toggle="dropdown" aria-expanded="false" aria-hidden="true"></i>

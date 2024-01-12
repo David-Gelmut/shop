@@ -62,7 +62,7 @@
                                     <td>
                                         <div class="input-group-prepend">
                                             <div class="dropdown-menu">
-                                                <a target="_blank" class="dropdown-item text-gray" href="{{'http://localhost:5173/products/'.$product->id}}">Показать продукт</a>
+                                                <a target="_blank" class="dropdown-item text-gray" href="{{'/products/'.$product->id}}">Показать продукт</a>
                                                 <a class="dropdown-item text-gray" href="{{route('product.edit',$product)}}">Редактировать продукт</a>
                                                 <form action="{{route('product.delete',$product)}}" method="post">
                                                     @csrf

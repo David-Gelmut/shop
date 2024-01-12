@@ -39,6 +39,7 @@
                                 <thead>
                                 <tr>
                                     <th>ID</th>
+                                    <th>Роль</th>
                                     <th>Имя</th>
                                     <th>Email</th>
                                     <th>Фамилия</th>
@@ -51,6 +52,7 @@
                                 <tbody>
                                     <tr>
                                         <td>{{$user->id}}</td>
+                                        <td>{{$user->roleTitle}}</td>
                                         <td>{{$user->name}}</td>
                                         <td>{{$user->email}}</td>
                                         <td>{{$user->firstname}}</td>

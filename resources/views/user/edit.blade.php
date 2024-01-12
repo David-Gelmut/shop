@@ -41,6 +41,14 @@
                             <option {{old('gender')==2||$user->gender==2?'selected':''}} value="2">Женский</option>
                         </select>
                     </div>
+                    <div class="form-group">
+                        <select name="role" class="custom-select form-control-border" id="exampleSelectBorder">
+                            <option disabled selected>Роль</option>
+                            @foreach($roles as $id=>$value)
+                                <option {{$user->role==$id?'selected':''}} value="{{$id}}">{{$value}}</option>
+                            @endforeach
+                        </select>
+                    </div>
                     <div class="form-group"><button class="btn btn-primary" type="submit">Обновить пользователя</button></div>
                 </form>
             </div>

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Product;
+namespace App\Http\Controllers\Order;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
@@ -11,9 +11,6 @@ class CreateController extends Controller
 {
    public function __invoke()
    {
-       $tags = Tag::all();
-       $colors = Color::all();
-       $categories = Category::all();
-       return view('product.create',['tags'=>$tags,'colors'=>$colors,'categories'=>$categories]);
+       return view('order.create');
    }
 }
