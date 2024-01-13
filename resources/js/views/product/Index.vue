@@ -131,7 +131,7 @@
                       <img :src="product.image_url" style="border-radius: 10px"  width="285" height="285" alt="Продукция" class=" product-img__photo">
                     </div>
                     <a :href="`products/${product.id}`">
-                      <h3 class="product-cart_title">{{product.title}}</h3>
+                      <h3 class="product-cart_title" style="color: red">{{product.title}}</h3>
                     </a>
                     <p class="product-cart__text"><span>Категория:</span> {{product.category.title}}</p>
                     <p class="product-cart__text"><span>Описание:</span> {{product.desc}}</p>

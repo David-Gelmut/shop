@@ -18,7 +18,6 @@
       <div class="container">
         <h2 class="address-title">Корзина</h2>
         <div class="table-mobil" v-if="sumCart">
-
           <div class="product_cart__wrapper" style="">
             <div class="cart_item" style="width: 200px;font-size: 18px;font-weight: bold;">Превью товара</div>
             <div class="cart_item" style="width: 400px;font-size: 18px;font-weight: bold;">Название товара</div>
@@ -26,7 +25,6 @@
             <div class="cart_item" style="width: 200px;font-size: 18px;font-weight: bold;">Количество</div>
             <div ></div>
           </div>
-
           <div v-for="product in products">
             <div class="product_cart_wrapper">
               <div class="cart_item" style="width: 200px">
@@ -34,31 +32,30 @@
               </div>
               <div class="cart_item" style="width: 400px;">
                 <a :href="`${product.id}`">
-                  <h3>{{product.title}}</h3>
+                  <h3 style="color: red">{{product.title}}</h3>
                 </a>
               </div>
               <div class="cart_item" style="width: 100px">
                 <span class="product-price" style="font-size: 24px;font-weight: bold;">{{product.price}}</span>
               </div>
               <div class="cart_item">
-                <a href="#" style="margin: 10px" class="cart__btn  cart-btn-minus" @click.prevent="setCount(product.id,'minus')">-</a>
+                <a href="#" style="margin: 10px;color:red;" class="cart__btn  cart-btn-minus" @click.prevent="setCount(product.id,'minus')">-</a>
                 <input disabled type="text" :name="`product_${product.id}`"  class="cart_input__btn" :value="`${productsCounts[product.id]}`">
-                <a href="#" style="margin: 10px" class="cart__btn cart-btn-plus" @click.prevent="setCount(product.id,'plus')">+</a>
+                <a href="#" style="margin: 10px;color:red;" class="cart__btn cart-btn-plus" @click.prevent="setCount(product.id,'plus')">+</a>
               </div>
               <div class="cart_item">
                 <button @click.prevent="removeProductCart(product.id)" style="color: #f6f6f6 ;background-color:gray; border-radius: 10px;padding:10px"> Удалить из корзины</button>
               </div>
             </div>
           </div>
-
           <div class="product_cart__wrapper" >
             <div class="cart_item" style="font-size: 24px;font-weight: bold;">Сумма <span class="cart-sum">{{sumCart}}</span> ₽</div>
           </div>
         </div>
         <div v-else>
-          <div class="product_cart_wrapper">
-            <div class="cart_item" style="font-size: 24px;font-weight: bold;">
-              Корзина пуста.Перейдите на <router-link to="/products">страницу с товарами</router-link>.
+          <div class="product_cart_wrapper" style="height: 600px;">
+            <div class="cart_item" style="font-size: 24px;font-weight: bold;margin-top: 200px;margin-left: 300px;">
+              Корзина пуста.Перейдите на <router-link to="/products"><span style="text-decoration: underline;color:black; ">страницу с товарами</span></router-link>.
             </div>
           </div>
         </div>
@@ -84,7 +81,6 @@
     <!-- Конец блока с формой -->
   </main>
 </template>
-
 <script>
 export default {
   name: "Cart",
@@ -220,6 +216,4 @@ export default {
   }
 }
 </script>
-<style scoped>
 
-</style>
