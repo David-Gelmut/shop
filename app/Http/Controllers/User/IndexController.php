@@ -10,6 +10,7 @@ class IndexController extends Controller
 {
    public function __invoke()
    {
+       $this->authorize('view',auth()->user());
        $users = User::all();
        return view('user.index',['users'=>$users]);
    }

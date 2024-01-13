@@ -10,6 +10,7 @@ class CreateController extends Controller
 {
    public function __invoke()
    {
+       $this->authorize('create',auth()->user());
        $roles = User::getRoles();
        return view('user.create',['roles'=>$roles]);
    }

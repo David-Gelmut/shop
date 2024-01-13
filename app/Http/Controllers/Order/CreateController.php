@@ -11,6 +11,7 @@ class CreateController extends Controller
 {
    public function __invoke()
    {
+       $this->authorize('create',auth()->user());
        return view('order.create');
    }
 }

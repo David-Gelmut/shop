@@ -67,6 +67,7 @@
             <!-- Sidebar Menu -->
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    @can('view',auth()->user())
                     <li class="nav-item d-flex">
                         <div class="input-group-prepend">
                             <div class="dropdown-menu">
@@ -79,6 +80,7 @@
                             <p>Заказы</p>
                         </a>
                     </li>
+                    @endcan
                     <li class="nav-item d-flex">
                         <div class="input-group-prepend">
                             <div class="dropdown-menu">
@@ -127,6 +129,7 @@
                             <p>Цвета</p>
                         </a>
                     </li>
+                    @can('view',auth()->user())
                     <li class="nav-item d-flex">
                         <div class="input-group-prepend">
                             <div class="dropdown-menu">
@@ -139,6 +142,7 @@
                             <p>Пользователи</p>
                         </a>
                     </li>
+                    @endcan
                 </ul>
             </nav>
             <!-- /.sidebar-menu -->
