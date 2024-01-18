@@ -47,7 +47,7 @@
                         <img style="margin: 10px;" src="{{asset('storage/'.$product->prev_image )}}" alt="" width="250px;" height="250px;">
                         <div class="input-group">
                             <div class="custom-file">
-                                <input   name="prev_image" type="file" class="custom-file-input">
+                                <input value="{{ Storage::url($product->prev_image) }}"   name="prev_image" type="file" class="custom-file-input">
                                 <label class="custom-file-label" for="exampleInputFile">Выберите файл</label>
                             </div>
                         </div>

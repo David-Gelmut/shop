@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->text('desc');
             $table->text('content');
-            $table->string('prev_image');
+            $table->string('prev_image')->nullable();
             $table->integer('count');
             $table->integer('price');
             $table->boolean('is_published')->default(true);
