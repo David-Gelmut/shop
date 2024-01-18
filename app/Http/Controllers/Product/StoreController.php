@@ -15,13 +15,21 @@ class StoreController extends Controller
     {
         $data = $request->validated();
         //dd($data);
+        $tagsIds = [];
+        $colorsIds = [];
         if(array_key_exists('prev_image',$data))
             $data['prev_image'] = Storage::disk('public')->put('/images', $data['prev_image']);
-        $tagsIds = $data['tags'];
-        $colorsIds = $data['colors'];
-        unset($data['tags'], $data['colors']);
+        if(array_key_exists('prev_image',$data)){
+            $tagsIds = $data['tags'];unset($data['tags']);
+        }
+        if(array_key_exists('prev_image',$data)){
+            $colorsIds = $data['colors'];
+            unset($data['colors']);
+        }
+
 
         $product = Product::FirstOrCreate($data);
+
 
         foreach ($tagsIds as $tagId) {
 
