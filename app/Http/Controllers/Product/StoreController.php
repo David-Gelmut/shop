@@ -14,8 +14,8 @@ class StoreController extends Controller
     public function __invoke(StoreRequest $request)
     {
         $data = $request->validated();
-       // dd($data);
-        if($data['prev_image'])
+        //dd($data);
+        if(array_key_exists('prev_image',$data))
             $data['prev_image'] = Storage::disk('public')->put('/images', $data['prev_image']);
         $tagsIds = $data['tags'];
         $colorsIds = $data['colors'];
