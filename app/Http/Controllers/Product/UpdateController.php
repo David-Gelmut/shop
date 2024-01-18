@@ -16,17 +16,22 @@ class UpdateController extends Controller
    public function __invoke(UpdateRequest $request,Product $product)
    {
        $data = $request->validated();
+       $tagsIds = [];
+       $colorsIds = [];
+       if(array_key_exists('tags',$data)){
+           $tagsIds = $data['tags'];
+           unset($data['tags']);
+           $product->tags()->sync($tagsIds);
+       }
+       if(array_key_exists('colors',$data)){
+           $colorsIds = $data['colors'];
+           unset($data['colors']);
+           $product->colors()->sync($colorsIds);
+       }
 
-       $tagsIds = $data['tags'];
-       $colorsIds = $data['colors'];
-
-       unset($data['tags'], $data['colors']);
-       if($data['prev_image'])
-            $data['prev_image'] = Storage::disk('public')->put('/images', $data['prev_image']);
-
+       if(array_key_exists('prev_image',$data))
+           $data['prev_image'] = Storage::disk('public')->put('/images', $data['prev_image']);
        $product->update($data);
-       $product->tags()->sync($tagsIds);
-       $product->colors()->sync($colorsIds);
 
        return view('product.show',['product'=>$product]);
    }
