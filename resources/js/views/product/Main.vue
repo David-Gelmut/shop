@@ -35,11 +35,11 @@
                 <hr class="line-title">
                 <div class="container-form">
                     <div class="forms-input__box">
-                        <input type="text" class="forms-input" placeholder="Ваше имя" required>
-                        <input type="tel" class="forms-input input-left" placeholder="Номер телефона" required>
+                        <input v-model="name" type="text" class="forms-input" placeholder="Ваше имя" required>
+                        <input v-model="phone" type="text" class="forms-input input-left" placeholder="Телефон" required>
                     </div>
                     <div class="form-btn__box">
-                        <button class="forms-btn">Отправить</button>
+                        <button class="forms-btn" @click.prevent="sendMail">Отправить</button>
                     </div>
                 </div>
             </div>
@@ -56,7 +56,9 @@ export default {
     },
     data(){
         return {
-            categories:[]
+            categories:[],
+            name:'',
+            phone:''
         }
 
     },
@@ -67,8 +69,16 @@ export default {
                     this.categories = res.data;
                     console.log(res.data);
                 })
+        },
+        sendMail(){
+            this.axios.post('/api/feedback',{
+                'name':this.name,
+                'phone':this.phone,
+            }).then(res=>{
+                this.name = '';
+                this.phone='';
+            })
         }
-
     }
 }
 </script>
