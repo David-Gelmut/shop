@@ -24,10 +24,10 @@
                 <form action="{{route('order.store')}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
-                        <input type="text" name="title" class="form-control" placeholder="Имя">
+                        <input type="text" name="name" class="form-control" placeholder="Имя">
                     </div>
                     <div class="form-group">
-                        <input type="text" name="desc" class="form-control" placeholder="Телефон">
+                        <input type="text" name="phone" class="form-control" placeholder="Телефон">
                     </div>
                     <div class="form-group">
                         <textarea name="data" id="" cols="80" rows="10" placeholder="Данные"></textarea>

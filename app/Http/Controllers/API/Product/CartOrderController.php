@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers\API\Product;
 
+use App\Events\OrderCreated;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\API\Product\CartOrderRequest;
 use App\Http\Resources\Product\ProductResource;
+use App\Mail\OrderMailer;
 use App\Models\Order;
 use App\Models\Product;
+use Illuminate\Support\Facades\Mail;
 
 class CartOrderController extends Controller
 {
@@ -19,8 +22,8 @@ class CartOrderController extends Controller
        }
        $data_request['data'] = json_encode($result);
        unset($data_request['counts']);
-       Order::firstOrCreate($data_request);
-
+       $order = Order::firstOrCreate($data_request);
+       event(new OrderCreated($order));
        return $result;
    }
 }
