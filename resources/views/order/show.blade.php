@@ -53,17 +53,18 @@
                                         <td>{{$order->created_at}}</td>
                                         <td>
                                             {{($order->data)}}
+                                            @if(is_array($order->data))
+                                                @foreach(json_decode($order->data) as $key=>$item)
+                                                    <div class="product-order-cart m-3">
+                                                        <div><b>ID :</b> {{$key}}</div>
+                                                        <div><b>Заголовок :</b> {{$item->title}}</div>
+                                                        <div><b>Цена :</b> <span class="product-order-cart-price">{{$item->price}}</span></div>
+                                                        <div><b>Количество на складе :</b> {{$item->count}}</div>
+                                                        <div><b>Количество в заказе :</b> <span class="product-order-cart-count">{{$item->count_order}}</span></div>
+                                                    </div>
 
-                                        @foreach(json_decode($order->data) as $key=>$item)
-                                            <div class="product-order-cart m-3">
-                                                <div><b>ID :</b> {{$key}}</div>
-                                                <div><b>Заголовок :</b> {{$item->title}}</div>
-                                                <div><b>Цена :</b> <span class="product-order-cart-price">{{$item->price}}</span></div>
-                                                <div><b>Количество на складе :</b> {{$item->count}}</div>
-                                                <div><b>Количество в заказе :</b> <span class="product-order-cart-count">{{$item->count_order}}</span></div>
-                                            </div>
-
-                                        @endforeach
+                                                @endforeach
+                                            @endif
                                             <div><b>Сумма заказа : </b> <span class="sum-order"></span></div>
                                         </td>
                                     </tr>
